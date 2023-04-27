@@ -16,9 +16,7 @@ public class updateddropdown3 {
         Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount")).isSelected());
 
         System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
-        driver.findElement(By.id(null))
-        
-
+        //driver.findElement(By.id(null))
     }    
     
 }

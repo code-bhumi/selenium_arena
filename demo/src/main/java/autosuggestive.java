@@ -1,6 +1,5 @@
+import java.sql.Driver;
 import java.util.*;
-
-import javax.swing.text.html.Option;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,13 +23,10 @@ public class autosuggestive {
         {
             if(option.getText().equalsIgnoreCase("India"))
                     {
-                option.click();
-                break;
+                        option.click();
+                        break;
                     }
-
         }
-
-    }    
-    
-    
+        driver.quit();
+    }        
 }
