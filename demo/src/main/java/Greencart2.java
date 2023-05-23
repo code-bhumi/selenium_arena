@@ -13,29 +13,28 @@ public class Greencart2 {
     public static void main(String[]args)  throws InterruptedException 
     {
 
-        // WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        // //WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(5));
-
-        // String[] itemsNeeded = {"Brocolli","Beetroot","Cucumber"};
-        // driver.get("https://rahulshettyacademy.com/seleniumPractise/#/"); 
-        // Thread.sleep(3000);  
-        // additems(driver, itemsNeeded);
-        // driver.findElement(By.cssSelector("img[alt='Cart']")).click();
-        // driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();
-        // //w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
-        // driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
-        // driver.findElement(By.xpath("//button[contains(text(),'Apply')]")).click();
-        // // explicit wait
+        String[] itemsNeeded = {"Brocolli","Beetroot","Cucumber"};
+        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/"); 
+        Thread.sleep(3000);  
+        additems(driver, itemsNeeded);
+        driver.findElement(By.cssSelector("img[alt='Cart']")).click();
+        driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();
+        w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
+        driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
+        driver.findElement(By.xpath("//button[contains(text(),'Apply')]")).click();
+        //explicit wait
         
-        // //w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
-        // System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
-        // driver.findElement(By.xpath("//button[contains(text(),'Place Order')]")).click();
+        w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
+        System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
+        driver.findElement(By.xpath("//button[contains(text(),'Place Order')]")).click();
 
     }
 
-    public static void additems(WebDriver driver, String[] itemsNeeded ){
+        public static void additems(WebDriver driver, String[] itemsNeeded ){
 
         int j = 0;
 
@@ -57,13 +56,13 @@ public class Greencart2 {
 
             if(itemsNeededlList.contains(formattedName))
             {
-                j++;
-                driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+            j++;
+            driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
                 
-                if(j == itemsNeeded.length)
-                {
-                    break;
-                }
+            if(j == itemsNeeded.length)
+            {
+                break;
+            }
 
             }
         }
