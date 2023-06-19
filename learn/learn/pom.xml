@@ -4,91 +4,36 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example</groupId>
-  <artifactId>demo</artifactId>
+  <groupId>adwita.com</groupId>
+  <artifactId>learn</artifactId>
   <version>1.0</version>
 
-  <name>demo</name>
+  <name>learn</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
-    <maven.compiler.release>18</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
-  
+
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/junit/junit -->
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.2</version>
-        <scope>compile</scope>
-    </dependency>
+  <!-- https://mvnrepository.com/artifact/junit/junit -->
+  <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
+  </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-    <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.7.1</version>
-        <scope>compile</scope>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-    <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>4.8.3</version>
-    </dependency>
-
-  
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.13.100</version>
-    </dependency>
-  
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.13.10</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-io</groupId>
-      <artifactId>commons-io</artifactId>
-      <version>2.12.0</version>
-    </dependency>
-  
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>4.5.14</version>
-    </dependency>
-  
-    <dependency>
-      <groupId>com.testsigma</groupId>
-      <artifactId>testsigma-sdk</artifactId>
-      <version>1.0.1</version>
-    </dependency>
-  
-    <dependency>
+  <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+  <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.7.1</version>
-      <scope>compile</scope>
-    </dependency>
-  
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>2.13.11</version>
-    </dependency>
-  
-    <dependency>
-      <groupId>com.testsigma</groupId>
-      <artifactId>testsigma-sdk</artifactId>
-      <version>1.0.1</version>
-    </dependency>
+      <version>7.8.0</version>
+  </dependency>
+
   </dependencies>
 
   <build>
@@ -105,13 +50,19 @@
           <version>3.0.2</version>
         </plugin>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+              <suiteXmlFiles>
+                  <suiteXmlFile>
+                      src\test\resources\hello_testng_suite.xml
+                  </suiteXmlFile>
+              </suiteXmlFiles>
+          </configuration>          
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
