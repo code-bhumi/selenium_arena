@@ -6,15 +6,16 @@ import org.testng.annotations.Test;
 import com.selenium_framework.pageobjects.CartPage;
 import com.selenium_framework.pageobjects.ProductCatalogue;
 import selenium_framework.TestComponent.BaseTest;
+import selenium_framework.TestComponent.Retry;
 
 public class ErrorValidation extends BaseTest  
 {
-    @Test (groups = {"ErrorHandling"})
+    @Test (groups = {"ErrorHandling"}, retryAnalyzer = Retry.class)
     public  void loginErrorValidation()   throws IOException, InterruptedException
             {
                 BaseTest bt = new BaseTest();      
                 bt.launchApplication().loginApplication("abcd@gmail.com", "sdefc584");  
-                Assert.assertEquals("Incorrect email or password.", bt.launchApplication().getErrorMessage());                                
+                Assert.assertEquals("Incorrect email password.", bt.launchApplication().getErrorMessage());                                
             }
 
     @Test
@@ -29,7 +30,7 @@ public class ErrorValidation extends BaseTest
                 CartPage cartPage = productCatalogue.goToCartPage();       
                 Boolean match = cartPage.VerifyProductDisplay("Zara coat 33");
                 Assert.assertFalse(match);                             
-            }        
+            }       
 
 
 }

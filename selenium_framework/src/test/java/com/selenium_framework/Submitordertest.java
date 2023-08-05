@@ -1,11 +1,8 @@
 package com.selenium_framework;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -15,9 +12,6 @@ import com.selenium_framework.pageobjects.ConfirmationPage;
 import com.selenium_framework.pageobjects.OrderPage;
 import com.selenium_framework.pageobjects.ProductCatalogue;
 import selenium_framework.TestComponent.BaseTest;
-
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 
 public class Submitordertest extends BaseTest {
@@ -52,14 +46,7 @@ public class Submitordertest extends BaseTest {
         Assert.assertTrue(orderPage.VerifyOrderDisplay(productName));
     } 
 
-    public String getScreenshot(String TestCaseName) throws IOException
-    {
-        TakesScreenshot ts = (TakesScreenshot)driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir")+ "//reports//"+ TestCaseName + ".png");
-        FileUtils.copyFile(source, file);
-        return System.getProperty("user.dir")+ "//reports//"+ TestCaseName + ".png";
-    }
+
     
     
     @DataProvider
